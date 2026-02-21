@@ -10,7 +10,11 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 [ -f "/home/brendan/.ghcup/env" ] && . "/home/brendan/.ghcup/env"
+# ghcup-env 
 
-# ghcup-env# Install Ruby Gems to ~/gems
+# Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# add gem path
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
