@@ -17,6 +17,11 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+" Move through soft-wrapped lines, but ignore them when moving multiple lines
+" at once so that relative line numbers still make sense.
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
+
 " COLORS
 set termguicolors
 colorscheme catppuccin_mocha " Install plugin from https://github.com/catppuccin/vim
