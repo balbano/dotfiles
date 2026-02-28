@@ -24,6 +24,11 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+# SOFT WRAPPING
+set wrap
+set linebreak
+set breakindent
+
 # Move through soft-wrapped lines, but ignore them when moving multiple lines
 # at once so that relative line numbers still make sense.
 noremap <expr> j v:count ? 'j' : 'gj'
