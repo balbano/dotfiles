@@ -1,20 +1,20 @@
-vim9script
-
 filetype plugin indent on
 syntax on
 
-# PLUGINS
-# catppuccin loaded from opt by colorscheme https://github.com/catppuccin/vim
-packadd! vim-tene # https://github.com/kennypete/vim-tene/
-set laststatus=2 # show statusline
+" PLUGINS
+" catppuccin loaded from opt by colorscheme https://github.com/catppuccin/vim
+packadd! vim-tene " https://github.com/kennypete/vim-tene/
+set laststatus=2 " show statusline
 
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-# LINE NUMBERING
-# Hybrid when in focus or edit, absolute in non-focus or insert. 
+autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+" LINE NUMBERING
+" Hybrid when in focus or edit, absolute in non-focus or insert. 
 
 set number
 
@@ -24,16 +24,18 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-# SOFT WRAPPING
+" SOFT WRAPPING
 set wrap
 set linebreak
 set breakindent
 
-# Move through soft-wrapped lines, but ignore them when moving multiple lines
-# at once so that relative line numbers still make sense.
+" Move through soft-wrapped lines, but ignore them when moving multiple lines
+" at once so that relative line numbers still make sense.
+" This doesn't seem to work write in vim9script, and I don't know why, so back
+" to regular vimscript for the vimrc, which is probably more sensible anyways.
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
-# COLORS
+" COLORS
 set termguicolors
 colorscheme catppuccin_mocha
